@@ -2,7 +2,7 @@ package fr.lukam.labresolver.model;
 
 import fr.lukam.labresolver.State;
 
-import java.awt.*;
+import java.awt.Point;
 
 class StartSearcher {
 
@@ -31,7 +31,8 @@ class StartSearcher {
 
         if (cases[lineIndex].length <= columnIndex) return;
 
-        if (cases[lineIndex][columnIndex] == State.EXIT) start = new Point(lineIndex, columnIndex);
+        if (cases[lineIndex][columnIndex] == State.EXIT)
+            start = new Point(lineIndex, columnIndex);
 
         searchInColumn(lineIndex, ++columnIndex);
 

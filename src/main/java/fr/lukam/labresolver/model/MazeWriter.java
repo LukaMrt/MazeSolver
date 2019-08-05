@@ -2,8 +2,7 @@ package fr.lukam.labresolver.model;
 
 import fr.lukam.labresolver.State;
 
-import java.awt.*;
-import java.io.IOException;
+import java.awt.Point;
 import java.util.List;
 
 public class MazeWriter {

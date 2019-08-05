@@ -31,7 +31,7 @@ class MazeSolver {
     void solve() {
 
         double start = System.nanoTime();
-        List<Point> solution = new MazePath(maze, maze.getStart(), new ArrayList<>()).compute();
+        List<Point> solution = new MazePath(maze, maze.getStart(), new ArrayList<>()).computePoint();
         double end = System.nanoTime();
 
         System.out.println();

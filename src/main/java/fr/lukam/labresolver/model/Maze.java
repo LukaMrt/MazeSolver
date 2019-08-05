@@ -2,7 +2,7 @@ package fr.lukam.labresolver.model;
 
 import fr.lukam.labresolver.State;
 
-import java.awt.*;
+import java.awt.Point;
 import java.io.File;
 import java.util.List;
 
@@ -38,7 +38,8 @@ public class Maze {
         if (solution.size() <= index) return;
 
         Point point = solution.get(index);
-        if (this.getState(point) != State.EXIT) this.cases[point.x][point.y] = State.SOLUTION;
+        if (this.getState(point) != State.EXIT)
+            this.cases[point.x][point.y] = State.SOLUTION;
 
         replaceToSolution(solution, ++index);
     }
