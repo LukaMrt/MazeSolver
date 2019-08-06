@@ -4,20 +4,19 @@ import fr.lukam.labresolver.State;
 
 import java.awt.Point;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Maze {
 
     private State[][] cases;
-    private Point start;
 
     public Maze(File file) {
         this.cases = MazeLoader.loadCases(file);
-        this.start = StartSearcher.search(this.cases);
     }
 
-    public Point getStart() {
-        return this.start;
+    public List<Point> solve() {
+        return new MazePath(this, StartSearcher.search(this.cases), new ArrayList<>()).computePoint();
     }
 
     State[] getLine(int line) {

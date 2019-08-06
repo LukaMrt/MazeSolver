@@ -4,14 +4,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        MazeSolver mazeSolver = new MazeSolver("10x10.txt");
+        MazeSolver mazeSolver = new MazeSolver("61x61.txt");
 
         if (!mazeSolver.canSolve()) {
             System.out.println("Failed to load the maze.");
             return;
         }
 
-        mazeSolver.solve();
+        double timeToSolve = mazeSolver.solve();
+
+        System.out.println();
+        System.out.println(timeToSolve / 1_000_000_000 + " seconds");
+        System.out.println(timeToSolve / 1_000_000 + " ms");
 
     }
 
