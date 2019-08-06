@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        MazeSolver mazeSolver = new MazeSolver("61x61.txt");
+        MazeSolver mazeSolver = new MazeSolver("12x9.txt");
 
         if (!mazeSolver.canSolve()) {
             System.out.println("Failed to load the maze.");
