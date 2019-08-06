@@ -6,7 +6,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MazePath {
+class MazePath {
 
     private static final int[][] NEXT_CASES_OPERATIONS
             = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
@@ -15,14 +15,14 @@ public class MazePath {
     private final Point point;
     private final List<Point> parents;
 
-    public MazePath(Maze maze, Point point, List<Point> parents) {
+    MazePath(Maze maze, Point point, List<Point> parents) {
         this.maze = maze;
         this.point = point;
         this.parents = parents;
         this.parents.add(this.point);
     }
 
-    public List<Point> computePoint() {
+    List<Point> computePoint() {
 
         if (this.point == null) return null;
 
