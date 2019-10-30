@@ -1,7 +1,7 @@
 package fr.lukam.labresolver;
 
 import fr.lukam.labresolver.model.Maze;
-import fr.lukam.labresolver.model.MazeWriter;
+import fr.lukam.labresolver.file.MazeWriter;
 
 import java.awt.*;
 import java.io.File;

@@ -1,4 +1,4 @@
-package fr.lukam.labresolver.model;
+package fr.lukam.labresolver.file;
 
 import fr.lukam.labresolver.State;
 
@@ -7,12 +7,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-class MazeLoader {
+public class MazeLoader {
 
     private static State[][] cases;
     private static BufferedReader bufferedReader;
 
-    static State[][] loadCases(File file) {
+    public static State[][] loadCases(File file) {
 
         try {
             bufferedReader = new BufferedReader(new FileReader(file));

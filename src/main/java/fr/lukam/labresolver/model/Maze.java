@@ -1,6 +1,7 @@
 package fr.lukam.labresolver.model;
 
 import fr.lukam.labresolver.State;
+import fr.lukam.labresolver.file.MazeLoader;
 
 import java.awt.Point;
 import java.io.File;
@@ -19,20 +20,20 @@ public class Maze {
         return new MazePath(this, StartSearcher.search(this.cases), new ArrayList<>()).computePoint();
     }
 
-    State[] getLine(int line) {
+    public State[] getLine(int line) {
         return this.cases.length > line ? this.cases[line] : null;
     }
 
-    State getState(Point point) {
+    public State getState(Point point) {
         return this.cases[point.x][point.y];
     }
 
-    boolean isSet(Point point) {
+    public boolean isSet(Point point) {
         return 0 <= point.x && point.x < cases.length
                 && 0 <= point.y && point.y < cases[point.x].length;
     }
 
-    void replaceToSolution(List<Point> solution, int index) {
+    public void replaceToSolution(List<Point> solution, int index) {
 
         if (solution.size() <= index) return;
 

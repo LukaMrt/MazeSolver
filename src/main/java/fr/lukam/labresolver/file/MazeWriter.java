@@ -1,6 +1,7 @@
-package fr.lukam.labresolver.model;
+package fr.lukam.labresolver.file;
 
 import fr.lukam.labresolver.State;
+import fr.lukam.labresolver.model.Maze;
 
 import java.awt.Point;
 import java.util.List;
