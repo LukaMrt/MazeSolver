@@ -43,25 +43,26 @@ class MazePath {
                 this.point.x + NEXT_CASES_OPERATIONS[index][0],
                 this.point.y + NEXT_CASES_OPERATIONS[index][1]);
 
-        List<Point> list1 = null;
         List<Point> list2 = this.continueWay(++index);
-
-        boolean canGo = this.maze.isSet(nextPoint)
-                && this.maze.getState(point) != State.WALL
-                && !this.parents.contains(nextPoint);
-
-        if (canGo) {
-            list1 = createMazePath(nextPoint);
-        }
+        List<Point> list1 = createMazePath(nextPoint);
 
         return list1 != null
                 && (list2 == null || list1.size() < list2.size())
-                ? list1
-                : list2;
+                ? list1 : list2;
+    }
 
+    private boolean canGoToPoint(Point nextPoint) {
+        return this.maze.isSet(nextPoint)
+                && this.maze.getState(point) != State.WALL
+                && !this.parents.contains(nextPoint);
     }
 
     private List<Point> createMazePath(Point nextPoint) {
+
+        if (!canGoToPoint(nextPoint)) {
+            return null;
+        }
+
         ArrayList<Point> parents = new ArrayList<>(this.parents);
         parents.add(nextPoint);
         return new MazePath(this.maze, parents).computePoint();
