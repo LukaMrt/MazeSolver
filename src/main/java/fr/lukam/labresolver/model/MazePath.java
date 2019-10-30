@@ -6,23 +6,22 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MazePath {
+class MazePath {
 
-    private static final int[][] NEXT_CASES_OPERATIONS
-            = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
+    private static final int[][] NEXT_CASES_OPERATIONS = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
 
     private final Maze maze;
     private final Point point;
     private final List<Point> parents;
 
-    MazePath(Maze maze, Point point, List<Point> parents) {
+    MazePath(Maze maze, List<Point> parents) {
         this.maze = maze;
-        this.point = point;
+        this.point = parents.get(parents.size() - 1);
         this.parents = parents;
         this.parents.add(this.point);
     }
 
-    public List<Point> computePoint() {
+    List<Point> computePoint() {
 
         if (this.point == null) return null;
 
@@ -51,14 +50,21 @@ public class MazePath {
                 && this.maze.getState(point) != State.WALL
                 && !this.parents.contains(nextPoint);
 
-        if (canGo)
-            list1 = new MazePath(this.maze, nextPoint, new ArrayList<>(this.parents)).computePoint();
+        if (canGo) {
+            list1 = createMazePath(nextPoint);
+        }
 
         return list1 != null
                 && (list2 == null || list1.size() < list2.size())
                 ? list1
                 : list2;
 
+    }
+
+    private List<Point> createMazePath(Point nextPoint) {
+        ArrayList<Point> parents = new ArrayList<>(this.parents);
+        parents.add(nextPoint);
+        return new MazePath(this.maze, parents).computePoint();
     }
 
 }
