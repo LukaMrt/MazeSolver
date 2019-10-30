@@ -37,17 +37,29 @@ public class MazeLoader {
         char[] lineArray = fileLine.toCharArray();
         cases[lineIndex] = new State[lineArray.length];
 
-        readColumn(lineArray, lineIndex, 0);
+        readColumn(lineArray, new Indexes(lineIndex, 0));
         readLine(++lineIndex);
     }
 
-    private static void readColumn(char[] lineArray, int lineIndex, int columnIndex) {
+    private static void readColumn(char[] lineArray, Indexes indexes) {
 
-        if (lineArray.length <= columnIndex) return;
+        if (lineArray.length <= indexes.columnIndex) return;
 
-        cases[lineIndex][columnIndex] = State.of(lineArray[columnIndex]);
+        cases[indexes.lineIndex][indexes.columnIndex] = State.of(lineArray[indexes.columnIndex]);
 
-        readColumn(lineArray, lineIndex, ++columnIndex);
+        readColumn(lineArray, new Indexes(indexes.lineIndex, indexes.columnIndex + 1));
+    }
+
+    private static class Indexes {
+
+        private final int lineIndex;
+        private final int columnIndex;
+
+        Indexes(int lineIndex, int columnIndex) {
+            this.lineIndex = lineIndex;
+            this.columnIndex = columnIndex;
+        }
+
     }
 
 }
