@@ -22,7 +22,8 @@ public class MazeLoader {
             readLine(0);
 
             bufferedReader.close();
-        } catch (IOException ignored) {
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
 
         return cases;
