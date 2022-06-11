@@ -1,4 +1,4 @@
-package com.lukamaret.mazesolver.main;
+package com.lukamaret.mazesolver.newVersion.main;
 
 public class Main {
 

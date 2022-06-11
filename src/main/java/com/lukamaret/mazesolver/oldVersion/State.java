@@ -1,4 +1,4 @@
-package fr.lukam.labresolver;
+package com.lukamaret.mazesolver.oldVersion;
 
 import java.util.Arrays;
 

@@ -1,5 +1,4 @@
-package com.lukamaret.mazesolver.domain.model;
+package com.lukamaret.mazesolver.newVersion.domain.model;
 
 public record CellPosition(int line, int column) {
-
 }

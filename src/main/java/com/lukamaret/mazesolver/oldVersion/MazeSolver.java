@@ -1,7 +1,7 @@
-package fr.lukam.labresolver;
+package com.lukamaret.mazesolver.oldVersion;
 
-import fr.lukam.labresolver.model.Maze;
-import fr.lukam.labresolver.file.MazeWriter;
+import com.lukamaret.mazesolver.oldVersion.file.MazeWriter;
+import com.lukamaret.mazesolver.oldVersion.model.Maze;
 
 import java.awt.*;
 import java.io.File;

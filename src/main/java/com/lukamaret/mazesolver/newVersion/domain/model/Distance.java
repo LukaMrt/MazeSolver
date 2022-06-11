@@ -1,2 +1,4 @@
-package com.lukamaret.mazesolver.domain.model;public class Distance {
+package com.lukamaret.mazesolver.newVersion.domain.model;
+
+public record Distance(int distance, CellPosition previous) {
 }

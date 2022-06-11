@@ -1,6 +1,6 @@
-package fr.lukam.labresolver.model;
+package com.lukamaret.mazesolver.oldVersion.model;
 
-import fr.lukam.labresolver.State;
+import com.lukamaret.mazesolver.oldVersion.State;
 
 import java.awt.Point;
 

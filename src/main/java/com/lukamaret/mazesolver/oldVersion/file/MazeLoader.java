@@ -1,6 +1,6 @@
-package fr.lukam.labresolver.file;
+package com.lukamaret.mazesolver.oldVersion.file;
 
-import fr.lukam.labresolver.State;
+import com.lukamaret.mazesolver.oldVersion.State;
 
 import java.io.BufferedReader;
 import java.io.File;

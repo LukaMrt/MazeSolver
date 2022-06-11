@@ -1,7 +1,7 @@
-package fr.lukam.labresolver.file;
+package com.lukamaret.mazesolver.oldVersion.file;
 
-import fr.lukam.labresolver.State;
-import fr.lukam.labresolver.model.Maze;
+import com.lukamaret.mazesolver.oldVersion.State;
+import com.lukamaret.mazesolver.oldVersion.model.Maze;
 
 import java.awt.Point;
 import java.util.List;
