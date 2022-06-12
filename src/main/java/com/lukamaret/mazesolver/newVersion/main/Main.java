@@ -5,7 +5,7 @@ import com.google.inject.Injector;
 import com.lukamaret.mazesolver.newVersion.domain.application.DistanceService;
 import com.lukamaret.mazesolver.newVersion.domain.application.MazeService;
 import com.lukamaret.mazesolver.newVersion.domain.application.PathService;
-import com.lukamaret.mazesolver.newVersion.infrastructure.MazeDimension;
+import com.lukamaret.mazesolver.newVersion.infrastructure.FileName;
 import com.lukamaret.mazesolver.newVersion.main.guice.DefaultInjector;
 import com.lukamaret.mazesolver.newVersion.view.TerminalView;
 
@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Injector injector = Guice.createInjector(new DefaultInjector(new MazeDimension(61, 61)));
+        Injector injector = Guice.createInjector(new DefaultInjector(new FileName("21x21.txt")));
         MazeService mazeService = injector.getInstance(MazeService.class);
         DistanceService distanceService = injector.getInstance(DistanceService.class);
         TerminalView view = injector.getInstance(TerminalView.class);
@@ -21,8 +21,7 @@ public class Main {
 
         mazeService.loadMaze();
 
-        while (!distanceService.computeStep()) {
-        }
+        distanceService.computeDijkstra();
 
         pathService.computeShortestPath();
         view.printMaze(mazeService.getCellsDescriptions());

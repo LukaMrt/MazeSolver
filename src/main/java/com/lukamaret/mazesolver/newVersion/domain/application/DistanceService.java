@@ -45,4 +45,14 @@ public class DistanceService {
                 .isEmpty();
     }
 
+    public void computeDijkstra() {
+
+        boolean run = false;
+
+        while (!run) {
+            run = computeStep();
+        }
+
+    }
+
 }

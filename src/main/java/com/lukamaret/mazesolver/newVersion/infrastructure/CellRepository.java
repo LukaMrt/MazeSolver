@@ -12,11 +12,11 @@ import java.util.List;
 @Singleton
 public class CellRepository {
 
-    private final Cell[][] cells;
+    private Cell[][] cells;
 
     @Inject
-    public CellRepository(MazeDimension dimension) {
-        cells = new Cell[dimension.linesCount()][dimension.columnsCount()];
+    public CellRepository() {
+        cells = new Cell[1][1];
     }
 
     public void set(CellPosition position, Cell cell) {
@@ -54,4 +54,19 @@ public class CellRepository {
                 .orElse(Cell.defaultCell());
     }
 
+    public void setLineCount(int count) {
+        cells = new Cell[count][cells[0].length];
+    }
+
+    public void setColumnCount(int length) {
+
+        if (cells[0].length == length) {
+            return;
+        }
+
+        for (int i = 0; i < cells.length; i++) {
+            cells[i] = new Cell[length];
+        }
+
+    }
 }

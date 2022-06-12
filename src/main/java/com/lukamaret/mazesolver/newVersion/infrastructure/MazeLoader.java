@@ -6,38 +6,42 @@ import com.lukamaret.mazesolver.newVersion.domain.model.CellType;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 
 @Singleton
 public class MazeLoader {
 
     private final CellRepository cellRepository;
-    private final FilePath filePath;
+    private final FileName fileName;
 
     @Inject
-    public MazeLoader(CellRepository cellRepository, FilePath filePath) {
+    public MazeLoader(CellRepository cellRepository, FileName fileName) {
         this.cellRepository = cellRepository;
-        this.filePath = filePath;
+        this.fileName = fileName;
     }
 
     public void load() {
 
-        URL resource = this.getClass().getResource(filePath.filePath());
+        URL url = getClass().getClassLoader().getResource(fileName.fileName());
 
-        if (resource == null) {
+        if (url == null) {
             return;
         }
 
-        File file = new File(resource.getFile());
+        File file = new File(url.getFile());
+
+        try(BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            cellRepository.setLineCount((int) reader.lines().count());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
         try(BufferedReader reader = new BufferedReader(new FileReader(file))) {
             load(reader);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
     }
@@ -47,6 +51,7 @@ public class MazeLoader {
         String line;
 
         while ((line = reader.readLine()) != null) {
+            cellRepository.setColumnCount(line.length());
             loadRow(row++, line);
         }
     }

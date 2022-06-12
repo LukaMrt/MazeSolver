@@ -1,21 +1,19 @@
 package com.lukamaret.mazesolver.newVersion.main.guice;
 
 import com.google.inject.AbstractModule;
-import com.lukamaret.mazesolver.newVersion.infrastructure.FilePath;
-import com.lukamaret.mazesolver.newVersion.infrastructure.MazeDimension;
+import com.lukamaret.mazesolver.newVersion.infrastructure.FileName;
 
 public class DefaultInjector extends AbstractModule {
 
-    private final MazeDimension mazeDimension;
+    private final FileName fileName;
 
-    public DefaultInjector(MazeDimension mazeDimension) {
-        this.mazeDimension = mazeDimension;
+    public DefaultInjector(FileName fileName) {
+        this.fileName = fileName;
     }
 
     @Override
     protected void configure() {
-        bind(MazeDimension.class).toInstance(mazeDimension);
-        bind(FilePath.class).toInstance(new FilePath(mazeDimension.linesCount() + "x" + mazeDimension.columnsCount() + ".txt"));
+        bind(FileName.class).toInstance(fileName);
     }
 
 }
