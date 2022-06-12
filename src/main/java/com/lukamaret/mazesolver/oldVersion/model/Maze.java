@@ -17,7 +17,7 @@ public class Maze {
     }
 
     public List<Point> solve() {
-        return new MazePath(this, StartSearcher.search(this.cases), new ArrayList<>()).computePoint();
+        return new MazePath(this, new ArrayList<>()).computePoint();
     }
 
     public State[] getLine(int line) {

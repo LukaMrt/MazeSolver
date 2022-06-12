@@ -7,7 +7,8 @@ public enum CellType {
     EMPTY('0'),
     WALL('1'),
     START('S'),
-    END('E');
+    END('E'),
+    PATH('X');
 
     private final char aChar;
 
