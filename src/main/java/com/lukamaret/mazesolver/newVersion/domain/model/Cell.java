@@ -1,5 +1,6 @@
 package com.lukamaret.mazesolver.newVersion.domain.model;
 
+import java.awt.*;
 import java.util.Vector;
 
 public class Cell {
@@ -66,6 +67,10 @@ public class Cell {
     public String toExtendedString() {
         String previous = distance.previous() != null ? String.format("%1$5s", distance.previous().position.toString()) : "";
         return "[" + type.toString() + "(" + String.format("%1$3s", distance.distance()) + ", " + previous + ")" + "]";
+    }
+
+    public Color getColor() {
+        return type.getColor();
     }
 
     @Override

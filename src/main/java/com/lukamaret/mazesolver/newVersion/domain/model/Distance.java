@@ -3,7 +3,7 @@ package com.lukamaret.mazesolver.newVersion.domain.model;
 public record Distance(int distance, Cell previous, boolean visited) {
 
     public static Distance defaultDistance() {
-        return new Distance(1_000, null, false);
+        return new Distance(1_000_000, null, false);
     }
 
     public Distance visit() {

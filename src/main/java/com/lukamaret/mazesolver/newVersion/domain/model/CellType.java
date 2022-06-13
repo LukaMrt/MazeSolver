@@ -1,19 +1,26 @@
 package com.lukamaret.mazesolver.newVersion.domain.model;
 
+import java.awt.*;
 import java.util.Arrays;
 
 public enum CellType {
 
-    EMPTY('0'),
-    WALL('1'),
-    START('S'),
-    END('E'),
-    PATH('X');
+    EMPTY('0', Color.WHITE),
+    WALL('1', Color.BLACK),
+    START('S', Color.GREEN),
+    END('E', Color.RED),
+    PATH('X', Color.ORANGE);
 
     private final char aChar;
+    private final Color color;
 
-    CellType(char aChar) {
+    CellType(char aChar, Color color) {
         this.aChar = aChar;
+        this.color = color;
+    }
+
+    public Color getColor() {
+        return color;
     }
 
     @Override

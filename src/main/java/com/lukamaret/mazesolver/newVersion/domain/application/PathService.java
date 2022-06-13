@@ -1,6 +1,7 @@
 package com.lukamaret.mazesolver.newVersion.domain.application;
 
 import com.lukamaret.mazesolver.newVersion.domain.model.Cell;
+import com.lukamaret.mazesolver.newVersion.domain.model.CellType;
 import com.lukamaret.mazesolver.newVersion.domain.model.Path;
 import com.lukamaret.mazesolver.newVersion.infrastructure.CellRepository;
 
@@ -33,7 +34,9 @@ public class PathService {
 
         path.add(start);
         Collections.reverse(path);
-        path.forEach(Cell::flag);
+        path.stream()
+                .filter(cell -> cell.is(CellType.EMPTY))
+                .forEach(Cell::flag);
 
         return new Path(path);
     }
