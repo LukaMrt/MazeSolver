@@ -29,4 +29,8 @@ public record CellPosition(int line, int column) {
         return line == that.line && column == that.column;
     }
 
+    public boolean isNotBorder(int lineCount, int columnCount) {
+        return 0 < line && line < lineCount - 1 && 0 < column && column < columnCount - 1;
+    }
+
 }

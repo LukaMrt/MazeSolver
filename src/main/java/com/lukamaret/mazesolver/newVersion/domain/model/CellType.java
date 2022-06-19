@@ -9,7 +9,7 @@ public enum CellType {
     WALL('1', Color.BLACK),
     START('S', Color.GREEN),
     END('E', Color.RED),
-    PATH('X', Color.ORANGE);
+    PATH('X', Color.WHITE);
 
     private final char aChar;
     private final Color color;

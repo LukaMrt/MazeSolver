@@ -8,11 +8,13 @@ public class Cell {
     private final CellPosition position;
     private CellType type;
     private Distance distance;
+    private Color group;
 
     public Cell(CellPosition position, CellType type) {
         this.position = position;
         this.type = type;
         this.distance = Distance.defaultDistance();
+        this.group = type.getColor();
     }
 
     public static Cell defaultCell() {
@@ -66,7 +68,7 @@ public class Cell {
     }
 
     public Color getColor() {
-        return type.getColor();
+        return group;
     }
 
     @Override
@@ -79,6 +81,26 @@ public class Cell {
 
     public CellPosition getPosition() {
         return position;
+    }
+
+    public Color getDistanceColor() {
+        return distance.getColor();
+    }
+
+    public void affectGroup(Color group) {
+        this.group = group;
+    }
+
+    public boolean isInSameGroup(Cell cell) {
+        return group.equals(cell.group);
+    }
+
+    public void affectGroup(Cell cell) {
+        this.group = cell.group;
+    }
+
+    public void updateType(CellType type) {
+        this.type = type;
     }
 
 }

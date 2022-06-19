@@ -69,4 +69,13 @@ public class CellRepository {
         }
 
     }
+
+    public int getLineCount() {
+        return cells.length;
+    }
+
+    public int getColumnCount() {
+        return cells[0].length;
+    }
+
 }
