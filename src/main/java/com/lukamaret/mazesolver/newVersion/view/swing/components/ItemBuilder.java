@@ -1,4 +1,4 @@
-package com.lukamaret.mazesolver.newVersion.view.components;
+package com.lukamaret.mazesolver.newVersion.view.swing.components;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;

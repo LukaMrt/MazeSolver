@@ -51,10 +51,6 @@ public class Cell {
         return distance.previous();
     }
 
-    public String printPosition() {
-        return position.toString();
-    }
-
     public void flag() {
         type = CellType.PATH;
     }
@@ -79,6 +75,10 @@ public class Cell {
         if (o == null || getClass() != o.getClass()) return false;
         Cell cell = (Cell) o;
         return position.equals(cell.position);
+    }
+
+    public CellPosition getPosition() {
+        return position;
     }
 
 }

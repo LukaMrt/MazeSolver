@@ -2,5 +2,5 @@ package com.lukamaret.mazesolver.newVersion.domain.model;
 
 import java.awt.*;
 
-public record CellView(char aChar, Color color) {
+public record CellView(CellPosition position, char aChar, Color color) {
 }

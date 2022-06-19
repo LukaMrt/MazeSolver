@@ -1,4 +1,4 @@
-package com.lukamaret.mazesolver.newVersion.view;
+package com.lukamaret.mazesolver.newVersion.view.terminal;
 
 public class TerminalView {
 

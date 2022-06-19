@@ -54,7 +54,7 @@ public class MazeService {
                 if (cell.is(CellType.EMPTY) && cell.getDistance() < 1_000_000) {
                     color = getColor(cell);
                 }
-                extendedCells[i][j] = new CellView(cell.toString().charAt(0), color);
+                extendedCells[i][j] = new CellView(cell.getPosition(), cell.toString().charAt(0), color);
             }
         }
 
